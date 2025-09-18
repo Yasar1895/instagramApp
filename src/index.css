@@ -2,14 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
-/* custom theme variables & utility classes */
-:root{
+/* ===============================
+   Custom theme variables
+=============================== */
+:root {
   --ig-bg: #fafafa;
   --ig-card: #ffffff;
   --ig-muted: #8e8e8e;
   --ig-accent: #0095f6;
   --ig-text: #111827;
 }
+
 .dark {
   --ig-bg: #0b0b0d;
   --ig-card: #111214;
@@ -18,12 +21,138 @@
   --ig-text: #e6e6e6;
 }
 
+/* ===============================
+   Body
+=============================== */
 body {
-  background: linear-gradient(180deg,var(--ig-bg), #fff);
+  background: var(--ig-bg);
   color: var(--ig-text);
   -webkit-font-smoothing: antialiased;
+  font-family: 'Inter', sans-serif;
 }
 
-/* small helpers */
-.fade-in { animation: fadeIn .28s ease both; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(6px)} to {opacity:1;transform:none} }
+/* ===============================
+   Animations
+=============================== */
+.fade-in {
+  animation: fadeIn 0.28s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ===============================
+   Scrollbar
+=============================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}
+
+/* ===============================
+   Buttons
+=============================== */
+.btn-primary {
+  @apply bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 text-white font-semibold py-2 px-4 rounded-lg shadow-md
+         hover:scale-105 transition-transform duration-200;
+}
+.btn-secondary {
+  @apply bg-gray-200 text-gray-900 font-medium py-2 px-4 rounded-lg 
+         hover:bg-gray-300 transition-colors duration-150;
+}
+
+/* ===============================
+   Cards / Posts
+=============================== */
+.card {
+  background-color: var(--ig-card);
+  @apply rounded-xl shadow-md overflow-hidden border border-gray-200;
+}
+.card-header {
+  @apply flex items-center p-3 gap-3;
+}
+.card-image {
+  @apply w-full object-cover;
+}
+.card-footer {
+  @apply p-3 flex justify-between items-center;
+}
+
+/* ===============================
+   Navbar
+=============================== */
+.navbar {
+  @apply sticky top-0 z-50 flex justify-between items-center px-4 py-3 bg-white shadow-md;
+}
+.navbar-logo {
+  @apply font-bold text-2xl bg-gradient-to-r from-pink-500 via-purple-500 to-orange-400 bg-clip-text text-transparent;
+}
+.navbar-links {
+  @apply flex gap-6 items-center;
+}
+
+/* ===============================
+   Stories
+=============================== */
+.story {
+  @apply flex flex-col items-center gap-2;
+}
+.story-image {
+  @apply w-16 h-16 rounded-full border-2 border-pink-500 p-0.5 object-cover;
+}
+
+/* ===============================
+   Profile
+=============================== */
+.profile-avatar {
+  @apply w-20 h-20 rounded-full object-cover border-2 border-gray-300;
+}
+.profile-username {
+  @apply font-semibold text-lg;
+}
+.profile-bio {
+  @apply text-gray-600;
+}
+
+/* ===============================
+   Explore grid
+=============================== */
+.explore-grid {
+  @apply grid grid-cols-3 gap-2 p-2;
+}
+.explore-item {
+  @apply w-full h-32 object-cover rounded-lg hover:scale-105 transition-transform duration-200;
+}
+
+/* ===============================
+   Reels / Video cards
+=============================== */
+.video-card {
+  @apply w-full rounded-lg overflow-hidden relative;
+}
+.video-overlay {
+  @apply absolute bottom-2 left-2 text-white font-semibold;
+}
+
+/* ===============================
+   Responsive Utilities
+=============================== */
+@media (min-width: 768px) {
+  .explore-grid { @apply grid-cols-4 gap-3; }
+  .card-footer { @apply px-6; }
+}
+@media (min-width: 1024px) {
+  .explore-grid { @apply grid-cols-6 gap-4; }
+}
