@@ -1,17 +1,16 @@
 module.exports = {
-  content: ['./index.html', './src/**/*.{js,jsx}'],
-  darkMode: 'class',
+  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        brand: {
-          50: '#f0f9ff',
-          100: '#e6f7ff',
-          500: '#0095f6',
-          700: '#0077d1'
-        }
-      }
-    }
+        instagram: {
+          pink: "#E1306C",
+          purple: "#833AB4",
+          orange: "#F77737",
+          yellow: "#FCAF45",
+        },
+      },
+    },
   },
-  plugins: []
-}
+  plugins: [],
+};
