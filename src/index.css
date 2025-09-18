@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* custom theme variables & utility classes */
+:root{
+  --ig-bg: #fafafa;
+  --ig-card: #ffffff;
+  --ig-muted: #8e8e8e;
+  --ig-accent: #0095f6;
+  --ig-text: #111827;
+}
+.dark {
+  --ig-bg: #0b0b0d;
+  --ig-card: #111214;
+  --ig-muted: #9aa0a6;
+  --ig-accent: #3897f0;
+  --ig-text: #e6e6e6;
+}
+
+body {
+  background: linear-gradient(180deg,var(--ig-bg), #fff);
+  color: var(--ig-text);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* small helpers */
+.fade-in { animation: fadeIn .28s ease both; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px)} to {opacity:1;transform:none} }
